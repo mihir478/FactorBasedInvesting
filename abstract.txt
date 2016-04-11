@@ -1,0 +1,8 @@
+Our goal is to apply linear as well as non-linear models to 25 S&P stocks (grouped by sector) to predictively model price movements and patterns using individual equity factors and macroeconomic factors. Examples of equity factors currently chosen are P/E Ratio, Dividend Yield, Market Value, Returns and Profit Margin. Examples of macro factors included GDP, Interest Rate, Unemployment, Consumer Spending. Linear models being applied are Ordinary Least Squares, Linear and Log Linear Regressions. This list is to start with and will be added to over time. Non-linear models will be neural networks trained with the time series data to predict trends, cycles and recognize patterns. We are also planning to apply processes such as GARCH to estimate volatility and get a sense for the errors between our models and the real data. Finally, we will present our results with data visualization and related plots. NOTE: This is a general idea and will change over time. 
+
+Sources: Bloomberg, Bureau of Economic Analysis, The Conference Board, US Inflation, Bureau of Labor Statistics, Federal Bank of St Louis,   
+
+Software: Matlab, R
+
+Models / Tools: Linear, Non-linear models, Matlab Signal Processing Toolbox, Machine Learning Toolbox
+
