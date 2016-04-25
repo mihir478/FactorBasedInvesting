@@ -16,5 +16,29 @@ classdef Equity
         TOT_MKT_VAL % total market value
         RETURN_COM_EQY % return on common equity
         PROF_MARGIN % profit margin
-   end
+    end
+    methods
+        function [mom acc rsi movavg proc pvt]= technical_indicator(obj)
+            
+            plotTechnicalIndicator(obj, tsmom(obj.PX_LAST), 'Momentum');
+            plotTechnicalIndicator(obj, tsaccel(obj.PX_LAST), 'Acceleration');
+            plotTechnicalIndicator(obj, rsindex(obj.PX_LAST), 'Relative Strength Indicator');
+            plotTechnicalIndicator(obj, prcroc(obj.PX_LAST), 'Price Rate of Change');
+            plotTechnicalIndicator(obj, pvtrend(obj.PX_LAST, obj.PX_VOLUME), 'Price Volume Trend');
+            
+            if(sum(isnan(obj.PX_LAST)) == 0)
+                movavg = tsmovavg(obj.PX_LAST, 'e', 50, 1);
+                [mid upper lower] = bollinger(movavg, 50);
+                figure()
+                plot([obj.PX_LAST,mid,upper,lower])
+                title(strcat(char(obj.name), ':', 'Bollinger Bands of 50D Moving Average'))
+                legend({'Price','mid','upper','lower'})
+            end
+        end
+        function plotTechnicalIndicator(obj, vector, titleStr)
+            figure()
+            plot(vector);
+            title(strcat(char(obj.name), ':', titleStr))
+        end
+    end
 end
